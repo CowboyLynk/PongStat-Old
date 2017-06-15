@@ -8,12 +8,18 @@
 
 /* Begin PBXBuildFile section */
 		855B24C31EF021B600DC8E7B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 855B24C21EF021B600DC8E7B /* AppDelegate.swift */; };
-		855B24C51EF021B600DC8E7B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 855B24C41EF021B600DC8E7B /* ViewController.swift */; };
+		855B24C51EF021B600DC8E7B /* PongGameVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 855B24C41EF021B600DC8E7B /* PongGameVC.swift */; };
 		855B24C81EF021B600DC8E7B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 855B24C61EF021B600DC8E7B /* Main.storyboard */; };
 		855B24CA1EF021B600DC8E7B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 855B24C91EF021B600DC8E7B /* Assets.xcassets */; };
 		855B24CD1EF021B600DC8E7B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 855B24CB1EF021B600DC8E7B /* LaunchScreen.storyboard */; };
 		855B24D81EF021B600DC8E7B /* PongStatUpdateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 855B24D71EF021B600DC8E7B /* PongStatUpdateTests.swift */; };
 		855B24E31EF021B600DC8E7B /* PongStatUpdateUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 855B24E21EF021B600DC8E7B /* PongStatUpdateUITests.swift */; };
+		855B24F31EF0232700DC8E7B /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 855B24F21EF0232700DC8E7B /* Utils.swift */; };
+		855B24F61EF0282400DC8E7B /* Cup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 855B24F41EF0282400DC8E7B /* Cup.swift */; };
+		855B24F71EF0282400DC8E7B /* Cup.xib in Resources */ = {isa = PBXBuildFile; fileRef = 855B24F51EF0282400DC8E7B /* Cup.xib */; };
+		85B46D261EF1C37900D07DA4 /* Charts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 85B46D231EF1C37200D07DA4 /* Charts.framework */; };
+		85B46D271EF1C37900D07DA4 /* Charts.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 85B46D231EF1C37200D07DA4 /* Charts.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		85B46D2E1EF2180C00D07DA4 /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85B46D2D1EF2180C00D07DA4 /* StartViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -31,12 +37,47 @@
 			remoteGlobalIDString = 855B24BE1EF021B600DC8E7B;
 			remoteInfo = PongStatUpdate;
 		};
+		85B46D221EF1C37200D07DA4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 85B46D1D1EF1C37200D07DA4 /* Charts.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 06165F241D8110E600722320;
+			remoteInfo = Charts;
+		};
+		85B46D241EF1C37200D07DA4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 85B46D1D1EF1C37200D07DA4 /* Charts.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 06165F2E1D8110E600722320;
+			remoteInfo = ChartsTests;
+		};
+		85B46D281EF1C37900D07DA4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 85B46D1D1EF1C37200D07DA4 /* Charts.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 06165F231D8110E600722320;
+			remoteInfo = Charts;
+		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		85B46D1B1EF1C2F300D07DA4 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				85B46D271EF1C37900D07DA4 /* Charts.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		855B24BF1EF021B600DC8E7B /* PongStatUpdate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PongStatUpdate.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		855B24C21EF021B600DC8E7B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		855B24C41EF021B600DC8E7B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		855B24C41EF021B600DC8E7B /* PongGameVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PongGameVC.swift; sourceTree = "<group>"; };
 		855B24C71EF021B600DC8E7B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		855B24C91EF021B600DC8E7B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		855B24CC1EF021B600DC8E7B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -47,6 +88,11 @@
 		855B24DE1EF021B600DC8E7B /* PongStatUpdateUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PongStatUpdateUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		855B24E21EF021B600DC8E7B /* PongStatUpdateUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PongStatUpdateUITests.swift; sourceTree = "<group>"; };
 		855B24E41EF021B600DC8E7B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		855B24F21EF0232700DC8E7B /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
+		855B24F41EF0282400DC8E7B /* Cup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Cup.swift; sourceTree = "<group>"; };
+		855B24F51EF0282400DC8E7B /* Cup.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Cup.xib; sourceTree = "<group>"; };
+		85B46D1D1EF1C37200D07DA4 /* Charts.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Charts.xcodeproj; path = "PongStatUpdate/Charts-master/Charts.xcodeproj"; sourceTree = "<group>"; };
+		85B46D2D1EF2180C00D07DA4 /* StartViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +100,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				85B46D261EF1C37900D07DA4 /* Charts.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -77,6 +124,7 @@
 		855B24B61EF021B600DC8E7B = {
 			isa = PBXGroup;
 			children = (
+				85B46D1D1EF1C37200D07DA4 /* Charts.xcodeproj */,
 				855B24C11EF021B600DC8E7B /* PongStatUpdate */,
 				855B24D61EF021B600DC8E7B /* PongStatUpdateTests */,
 				855B24E11EF021B600DC8E7B /* PongStatUpdateUITests */,
@@ -98,8 +146,12 @@
 			isa = PBXGroup;
 			children = (
 				855B24C21EF021B600DC8E7B /* AppDelegate.swift */,
-				855B24C41EF021B600DC8E7B /* ViewController.swift */,
+				855B24C41EF021B600DC8E7B /* PongGameVC.swift */,
+				85B46D2D1EF2180C00D07DA4 /* StartViewController.swift */,
+				855B24F21EF0232700DC8E7B /* Utils.swift */,
 				855B24C61EF021B600DC8E7B /* Main.storyboard */,
+				855B24F41EF0282400DC8E7B /* Cup.swift */,
+				855B24F51EF0282400DC8E7B /* Cup.xib */,
 				855B24C91EF021B600DC8E7B /* Assets.xcassets */,
 				855B24CB1EF021B600DC8E7B /* LaunchScreen.storyboard */,
 				855B24CE1EF021B600DC8E7B /* Info.plist */,
@@ -125,6 +177,15 @@
 			path = PongStatUpdateUITests;
 			sourceTree = "<group>";
 		};
+		85B46D1E1EF1C37200D07DA4 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				85B46D231EF1C37200D07DA4 /* Charts.framework */,
+				85B46D251EF1C37200D07DA4 /* ChartsTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -135,10 +196,12 @@
 				855B24BB1EF021B600DC8E7B /* Sources */,
 				855B24BC1EF021B600DC8E7B /* Frameworks */,
 				855B24BD1EF021B600DC8E7B /* Resources */,
+				85B46D1B1EF1C2F300D07DA4 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				85B46D291EF1C37900D07DA4 /* PBXTargetDependency */,
 			);
 			name = PongStatUpdate;
 			productName = PongStatUpdate;
@@ -193,6 +256,7 @@
 				TargetAttributes = {
 					855B24BE1EF021B600DC8E7B = {
 						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = 9TC8363YB3;
 						ProvisioningStyle = Automatic;
 					};
 					855B24D21EF021B600DC8E7B = {
@@ -218,6 +282,12 @@
 			mainGroup = 855B24B61EF021B600DC8E7B;
 			productRefGroup = 855B24C01EF021B600DC8E7B /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 85B46D1E1EF1C37200D07DA4 /* Products */;
+					ProjectRef = 85B46D1D1EF1C37200D07DA4 /* Charts.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				855B24BE1EF021B600DC8E7B /* PongStatUpdate */,
@@ -227,11 +297,29 @@
 		};
 /* End PBXProject section */
 
+/* Begin PBXReferenceProxy section */
+		85B46D231EF1C37200D07DA4 /* Charts.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Charts.framework;
+			remoteRef = 85B46D221EF1C37200D07DA4 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		85B46D251EF1C37200D07DA4 /* ChartsTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = ChartsTests.xctest;
+			remoteRef = 85B46D241EF1C37200D07DA4 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
+
 /* Begin PBXResourcesBuildPhase section */
 		855B24BD1EF021B600DC8E7B /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				855B24F71EF0282400DC8E7B /* Cup.xib in Resources */,
 				855B24CD1EF021B600DC8E7B /* LaunchScreen.storyboard in Resources */,
 				855B24CA1EF021B600DC8E7B /* Assets.xcassets in Resources */,
 				855B24C81EF021B600DC8E7B /* Main.storyboard in Resources */,
@@ -259,8 +347,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				855B24C51EF021B600DC8E7B /* ViewController.swift in Sources */,
+				85B46D2E1EF2180C00D07DA4 /* StartViewController.swift in Sources */,
+				855B24F61EF0282400DC8E7B /* Cup.swift in Sources */,
+				855B24C51EF021B600DC8E7B /* PongGameVC.swift in Sources */,
 				855B24C31EF021B600DC8E7B /* AppDelegate.swift in Sources */,
+				855B24F31EF0232700DC8E7B /* Utils.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -292,6 +383,11 @@
 			isa = PBXTargetDependency;
 			target = 855B24BE1EF021B600DC8E7B /* PongStatUpdate */;
 			targetProxy = 855B24DF1EF021B600DC8E7B /* PBXContainerItemProxy */;
+		};
+		85B46D291EF1C37900D07DA4 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = Charts;
+			targetProxy = 85B46D281EF1C37900D07DA4 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -411,7 +507,9 @@
 		855B24E81EF021B600DC8E7B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 9TC8363YB3;
 				INFOPLIST_FILE = PongStatUpdate/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Lampshade.PongStatUpdate;
@@ -423,7 +521,9 @@
 		855B24E91EF021B600DC8E7B /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 9TC8363YB3;
 				INFOPLIST_FILE = PongStatUpdate/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Lampshade.PongStatUpdate;
@@ -505,6 +605,7 @@
 				855B24E91EF021B600DC8E7B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		855B24EA1EF021B600DC8E7B /* Build configuration list for PBXNativeTarget "PongStatUpdateTests" */ = {
 			isa = XCConfigurationList;
@@ -513,6 +614,7 @@
 				855B24EC1EF021B600DC8E7B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		855B24ED1EF021B600DC8E7B /* Build configuration list for PBXNativeTarget "PongStatUpdateUITests" */ = {
 			isa = XCConfigurationList;
@@ -521,6 +623,7 @@
 				855B24EF1EF021B600DC8E7B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
