@@ -62,8 +62,8 @@ class StartViewController: UIViewController {
     
     // Animations
     func springAnimateIn(viewToAnimate: UIView){
-        // Sets final score
-        // finalScore.text = "Final Score: \(activeGame.score())"
+        // Sets initial scale
+        viewToAnimate.transform = CGAffineTransform.init(scaleX: 1, y: 1)
         
         // Adds BG blur
         view.addSubview(blurEffectView)
