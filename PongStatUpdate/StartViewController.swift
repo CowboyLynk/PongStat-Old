@@ -42,8 +42,14 @@ class StartViewController: UIViewController {
         let confirmAction = UIAlertAction(title: "Play", style: .default) { (_) in
             let field = alertController.textFields![0]
             if field.text != "" && Int(field.text!)! > 0 {
-                self.numInitialCups = Int(field.text!)!
-                self.performSegue(withIdentifier: "startGame", sender: nil)
+                if Int(field.text!)! >= 75 {
+                    let alert = UIAlertController(title: "Really?", message: "Yeah, I'm gonna call bullshit on that.", preferredStyle: UIAlertControllerStyle.alert)
+                    alert.addAction(UIAlertAction(title: "Sorry", style: UIAlertActionStyle.default, handler: nil))
+                    self.present(alert, animated: true, completion: nil)
+                } else {
+                    self.numInitialCups = Int(field.text!)!
+                    self.performSegue(withIdentifier: "startGame", sender: nil)
+                }
             } else {
                 // user did not fill field
             }
