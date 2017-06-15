@@ -24,10 +24,10 @@ class StartViewController: UIViewController {
         presentAlert()
     }
     @IBAction func instructionsButtonPressed(_ sender: Any) {
-        springAnimateIn(viewToAnimate: instructionsView)
+        Animations.springAnimateIn(viewToAnimate: instructionsView, blurView: blurEffectView, view: self.view)
     }
     @IBAction func instructionsCloseButtonPressed(_ sender: Any) {
-        animateOut(viewToAnimate: instructionsView)
+        Animations.animateOut(viewToAnimate: instructionsView, blurView: blurEffectView)
     }
     
     // Functions
@@ -58,43 +58,6 @@ class StartViewController: UIViewController {
         alertController.addAction(confirmAction)
         
         self.present(alertController, animated: true, completion: nil)
-    }
-    
-    // Animations
-    func springAnimateIn(viewToAnimate: UIView){
-        // Sets initial scale
-        viewToAnimate.transform = CGAffineTransform.init(scaleX: 1, y: 1)
-        
-        // Adds BG blur
-        view.addSubview(blurEffectView)
-        
-        // Adds view to main screen
-        self.view.addSubview(viewToAnimate)
-        viewToAnimate.alpha = 0
-        viewToAnimate.center = CGPoint.init(x: self.view.center.x, y: self.view.bounds.height)
-        viewToAnimate.layer.shadowColor = UIColor.black.cgColor
-        viewToAnimate.layer.shadowOpacity = 0.3
-        viewToAnimate.layer.shadowOffset = CGSize.zero
-        viewToAnimate.layer.shadowRadius = 20
-        
-        UIView.animate(withDuration: 0.4){
-            viewToAnimate.alpha = 1
-            self.blurEffectView.alpha = 1
-        }
-        UIView.animate(withDuration: 1, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0, options: [] , animations: {
-            viewToAnimate.center = CGPoint.init(x: self.view.center.x, y: self.view.bounds.height/2)
-        }, completion: nil)
-    }
-    func animateOut(viewToAnimate: UIView){
-        UIView.animate(withDuration: 0.3, animations: {
-            self.blurEffectView.alpha = 0
-            viewToAnimate.alpha = 0
-            viewToAnimate.transform = CGAffineTransform.init(scaleX: 1.05, y: 1.05)
-            
-        }) { (sucsess:Bool) in
-            viewToAnimate.removeFromSuperview()
-            self.blurEffectView.removeFromSuperview()
-        }
     }
     
     override func viewDidLoad() {

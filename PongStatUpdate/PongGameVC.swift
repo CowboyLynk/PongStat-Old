@@ -43,7 +43,7 @@ class PongGameVC: UIViewController {
     }
     @IBAction func reRackButtonTapped(_ sender: Any) {
         activeGame.reRackConfig = initialReRackArrangement
-        springAnimateIn(viewToAnimate: reRackView)
+        Animations.springAnimateIn(viewToAnimate: reRackView, blurView: blurEffectView, view: self.view)
         setReRackView()
     }
     @IBAction func resetButtonTapped(_ sender: Any) {
@@ -67,7 +67,7 @@ class PongGameVC: UIViewController {
             setTable(cupConfig: activeGame.cupConfig)
             activeGame.reRackConfig = initialReRackArrangement
             turns.append((3, activeGame.copy() as! PongGame))
-            animateOut(viewToAnimate: reRackView)
+            Animations.animateOut(viewToAnimate: reRackView, blurView: blurEffectView)
         }
         else {
             let alert = UIAlertController(title: "Invalid Re-rack", message: "The number of cups you set for the re-rack doesn't match the number of cups on the table. Cups on table: \(self.activeGame.cupsRemaining())", preferredStyle: UIAlertControllerStyle.alert)
@@ -76,7 +76,7 @@ class PongGameVC: UIViewController {
         }
     }
     @IBAction func closeReRackButtonTapped(_ sender: Any) {
-        animateOut(viewToAnimate: reRackView)
+        Animations.animateOut(viewToAnimate: reRackView, blurView: blurEffectView)
     }
     func reRackSelectorTapped(sender:reRackSwitch!){
         sender.isPressed()
@@ -90,7 +90,7 @@ class PongGameVC: UIViewController {
         activeGame = turns.last?.1.copy() as! PongGame
         setTable(cupConfig: activeGame.cupConfig)
         updateVisuals()
-        animateOut(viewToAnimate: self.winnersView)
+        Animations.animateOut(viewToAnimate: self.winnersView, blurView: blurEffectView)
     }
     @IBAction func wvPlayAgainButtonPressed(_ sender: Any) {
         clearView(view: tableView)
@@ -99,7 +99,7 @@ class PongGameVC: UIViewController {
         turns.removeAll()
         turns.append((4, activeGame.copy() as! PongGame))
         updateVisuals()
-        animateOut(viewToAnimate: self.winnersView)
+        Animations.animateOut(viewToAnimate: self.winnersView, blurView: blurEffectView)
     }
     
     //Functions
@@ -123,14 +123,14 @@ class PongGameVC: UIViewController {
         updateVisuals()
         if activeGame.cupsRemaining() == 0{
             finalScoreLabel.text = "Final Score: \(String(Int(activeGame.score)))"
-            springAnimateIn(viewToAnimate: winnersView)
+            Animations.springAnimateIn(viewToAnimate: winnersView, blurView: blurEffectView, view: self.view)
         }
     }
     func updateVisuals(){
         activeGame.updateScore()
         missedButton.setTitle("MISSED: \(activeGame.missedCounter)", for: .normal)
         currentScoreLabel.text = "WEIGHTED SCORE: \(Int(activeGame.score))"
-        updateChart()
+        ChartSetup.updateChart(chartView: chartView, noDataLabel: noDataLabel, turnNodes: getTurnNodes())
     }
     func clearView(view: UIView){
         for subView in view.subviews{
@@ -185,64 +185,6 @@ class PongGameVC: UIViewController {
             i += 1
         }
     }
-    func setUpChart(){
-        chartView.noDataText = ""
-        chartView.leftAxis.axisMinimum = -10
-        chartView.leftAxis.axisMaximum = 110.0
-        chartView.leftAxis.enabled = false
-        chartView.leftAxis.drawGridLinesEnabled = false
-        chartView.xAxis.drawGridLinesEnabled = false
-        chartView.xAxis.enabled = false
-        chartView.rightAxis.enabled = false
-        chartView.legend.enabled = false
-        chartView.noDataTextColor = UIColor.white
-        chartView.gridBackgroundColor = UIColor.white
-        chartView.xAxis.drawGridLinesEnabled = false
-        chartView.leftAxis.drawGridLinesEnabled = false
-        chartView.rightAxis.drawGridLinesEnabled = false
-        chartView.chartDescription?.text = ""
-        chartView.highlightPerTapEnabled = false
-        chartView.highlightPerDragEnabled = false
-        chartView.doubleTapToZoomEnabled = false
-        chartView.pinchZoomEnabled = false
-    }
-    func updateChart(){
-        var scores = [ChartDataEntry]()
-        var colors = [UIColor]()
-        let turnNodes = getTurnNodes()
-        if turnNodes.count > 0{
-            noDataLabel.isHidden = true
-            scores.append(ChartDataEntry(x: -1, y: turnNodes[0].1.score))
-            colors.append(UIColor.white)
-            for i in 0..<turnNodes.count{
-                scores.append(ChartDataEntry(x: Double(i), y: turnNodes[i].1.score))
-                if turnNodes[i].0 == 0 {
-                    colors.append(UIColor.white)
-                } else {
-                    colors.append(UIColor(red:1.00, green:0.40, blue:0.40, alpha:1.0))
-                }
-            }
-        } else {
-            noDataLabel.isHidden = false
-        }
-        let chartDataSet = LineChartDataSet(values: scores, label: "Efficiency")
-        
-        // Styling
-        chartDataSet.setColors(UIColor.white)
-        chartDataSet.circleColors.remove(at: 0)
-        chartDataSet.circleColors.append(contentsOf: colors)
-        chartDataSet.fillColor = UIColor(red:0.39, green:0.78, blue:0.56, alpha:1.0)
-        chartDataSet.circleRadius = 6
-        chartDataSet.circleHoleRadius = 3
-        chartDataSet.circleHoleColor = UIColor(red:0.29, green:0.58, blue:0.41, alpha:1.0)
-        chartDataSet.mode = LineChartDataSet.Mode.cubicBezier
-        chartDataSet.drawValuesEnabled = false
-        chartDataSet.lineWidth = 3
-        chartDataSet.drawFilledEnabled = true
-        
-        let chartData = LineChartData(dataSet: chartDataSet)  // Error occurs here
-        chartView.data = chartData
-    }
     func getTurnNodes() -> [(Int, PongGame)]{
         var turnNodes = [(Int, PongGame)]()
         for turn in turns{
@@ -251,43 +193,6 @@ class PongGameVC: UIViewController {
             }
         }
         return turnNodes
-    }
-    
-    // Animations
-    func springAnimateIn(viewToAnimate: UIView){
-        // Sets initial scale
-        viewToAnimate.transform = CGAffineTransform.init(scaleX: 1, y: 1)
-        
-        // Adds BG blur
-        view.addSubview(blurEffectView)
-        
-        // Adds view to main screen
-        self.view.addSubview(viewToAnimate)
-        viewToAnimate.alpha = 0
-        viewToAnimate.center = CGPoint.init(x: self.view.center.x, y: self.view.bounds.height)
-        viewToAnimate.layer.shadowColor = UIColor.black.cgColor
-        viewToAnimate.layer.shadowOpacity = 0.3
-        viewToAnimate.layer.shadowOffset = CGSize.zero
-        viewToAnimate.layer.shadowRadius = 20
-        
-        UIView.animate(withDuration: 0.4){
-            viewToAnimate.alpha = 1
-            self.blurEffectView.alpha = 1
-        }
-        UIView.animate(withDuration: 1, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0, options: [] , animations: {
-            viewToAnimate.center = CGPoint.init(x: self.view.center.x, y: self.view.bounds.height/2)
-        }, completion: nil)
-    }
-    func animateOut(viewToAnimate: UIView){
-        UIView.animate(withDuration: 0.3, animations: {
-            self.blurEffectView.alpha = 0
-            viewToAnimate.alpha = 0
-            viewToAnimate.transform = CGAffineTransform.init(scaleX: 1.05, y: 1.05)
-            
-        }) { (sucsess:Bool) in
-            viewToAnimate.removeFromSuperview()
-            self.blurEffectView.removeFromSuperview()
-        }
     }
 
     override func viewDidLoad() {
@@ -311,7 +216,7 @@ class PongGameVC: UIViewController {
         // Starts the game
         activeGame = PongGame(config: initialArrangement)  // creates a new game with a given amount of cups
         setTable(cupConfig: initialArrangement)
-        setUpChart()
+        ChartSetup.setUpChart(chartView: chartView)
         turns.append((4, activeGame.copy() as! PongGame))
         
         // Whole screen blur view (used in many pop-ups)

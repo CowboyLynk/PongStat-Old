@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		852458B31EF2C38D0007A805 /* Animations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 852458B21EF2C38D0007A805 /* Animations.swift */; };
+		852458B71EF2C7530007A805 /* ChartSetup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 852458B61EF2C7530007A805 /* ChartSetup.swift */; };
 		855B24C31EF021B600DC8E7B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 855B24C21EF021B600DC8E7B /* AppDelegate.swift */; };
 		855B24C51EF021B600DC8E7B /* PongGameVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 855B24C41EF021B600DC8E7B /* PongGameVC.swift */; };
 		855B24C81EF021B600DC8E7B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 855B24C61EF021B600DC8E7B /* Main.storyboard */; };
@@ -75,6 +77,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		852458B21EF2C38D0007A805 /* Animations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Animations.swift; sourceTree = "<group>"; };
+		852458B61EF2C7530007A805 /* ChartSetup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChartSetup.swift; sourceTree = "<group>"; };
 		855B24BF1EF021B600DC8E7B /* PongStatUpdate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PongStatUpdate.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		855B24C21EF021B600DC8E7B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		855B24C41EF021B600DC8E7B /* PongGameVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PongGameVC.swift; sourceTree = "<group>"; };
@@ -121,6 +125,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		852458B51EF2C73C0007A805 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				852458B21EF2C38D0007A805 /* Animations.swift */,
+				852458B61EF2C7530007A805 /* ChartSetup.swift */,
+				855B24F21EF0232700DC8E7B /* Utils.swift */,
+			);
+			name = Utilities;
+			sourceTree = "<group>";
+		};
 		855B24B61EF021B600DC8E7B = {
 			isa = PBXGroup;
 			children = (
@@ -147,8 +161,8 @@
 			children = (
 				855B24C21EF021B600DC8E7B /* AppDelegate.swift */,
 				855B24C41EF021B600DC8E7B /* PongGameVC.swift */,
+				852458B51EF2C73C0007A805 /* Utilities */,
 				85B46D2D1EF2180C00D07DA4 /* StartViewController.swift */,
-				855B24F21EF0232700DC8E7B /* Utils.swift */,
 				855B24C61EF021B600DC8E7B /* Main.storyboard */,
 				855B24F41EF0282400DC8E7B /* Cup.swift */,
 				855B24F51EF0282400DC8E7B /* Cup.xib */,
@@ -349,7 +363,9 @@
 			files = (
 				85B46D2E1EF2180C00D07DA4 /* StartViewController.swift in Sources */,
 				855B24F61EF0282400DC8E7B /* Cup.swift in Sources */,
+				852458B31EF2C38D0007A805 /* Animations.swift in Sources */,
 				855B24C51EF021B600DC8E7B /* PongGameVC.swift in Sources */,
+				852458B71EF2C7530007A805 /* ChartSetup.swift in Sources */,
 				855B24C31EF021B600DC8E7B /* AppDelegate.swift in Sources */,
 				855B24F31EF0232700DC8E7B /* Utils.swift in Sources */,
 			);
