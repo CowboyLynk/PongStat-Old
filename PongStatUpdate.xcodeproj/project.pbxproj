@@ -256,7 +256,7 @@
 				TargetAttributes = {
 					855B24BE1EF021B600DC8E7B = {
 						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = 9TC8363YB3;
+						DevelopmentTeam = 78T5GXP6Q3;
 						ProvisioningStyle = Automatic;
 					};
 					855B24D21EF021B600DC8E7B = {
@@ -509,10 +509,11 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 9TC8363YB3;
+				DEVELOPMENT_TEAM = 78T5GXP6Q3;
 				INFOPLIST_FILE = PongStatUpdate/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = Lampshade.PongStatUpdate;
+				PRODUCT_BUNDLE_IDENTIFIER = LampshadeSoftware.PongStat;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -523,10 +524,11 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 9TC8363YB3;
+				DEVELOPMENT_TEAM = 78T5GXP6Q3;
 				INFOPLIST_FILE = PongStatUpdate/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = Lampshade.PongStatUpdate;
+				PRODUCT_BUNDLE_IDENTIFIER = LampshadeSoftware.PongStat;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
