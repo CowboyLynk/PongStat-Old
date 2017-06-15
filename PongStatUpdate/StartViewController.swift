@@ -12,15 +12,22 @@ class StartViewController: UIViewController {
     
     // Variables
     var numInitialCups = 15
+    let blurEffectView = UIVisualEffectView(effect: UIBlurEffect(style: UIBlurEffectStyle.light))
     
     // Outlets
     @IBOutlet weak var startGameButton: UIButton!
     @IBOutlet weak var instructionButton: UIButton!
+    @IBOutlet var instructionsView: UIView!
     
     // Actions
     @IBAction func startGameButtonPressed(_ sender: Any) {
         presentAlert()
-        print("test")
+    }
+    @IBAction func instructionsButtonPressed(_ sender: Any) {
+        springAnimateIn(viewToAnimate: instructionsView)
+    }
+    @IBAction func instructionsCloseButtonPressed(_ sender: Any) {
+        animateOut(viewToAnimate: instructionsView)
     }
     
     // Functions
@@ -53,7 +60,49 @@ class StartViewController: UIViewController {
         self.present(alertController, animated: true, completion: nil)
     }
     
+    // Animations
+    func springAnimateIn(viewToAnimate: UIView){
+        // Sets final score
+        // finalScore.text = "Final Score: \(activeGame.score())"
+        
+        // Adds BG blur
+        view.addSubview(blurEffectView)
+        
+        // Adds view to main screen
+        self.view.addSubview(viewToAnimate)
+        viewToAnimate.alpha = 0
+        viewToAnimate.center = CGPoint.init(x: self.view.center.x, y: self.view.bounds.height)
+        viewToAnimate.layer.shadowColor = UIColor.black.cgColor
+        viewToAnimate.layer.shadowOpacity = 0.3
+        viewToAnimate.layer.shadowOffset = CGSize.zero
+        viewToAnimate.layer.shadowRadius = 20
+        
+        UIView.animate(withDuration: 0.4){
+            viewToAnimate.alpha = 1
+            self.blurEffectView.alpha = 1
+        }
+        UIView.animate(withDuration: 1, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0, options: [] , animations: {
+            viewToAnimate.center = CGPoint.init(x: self.view.center.x, y: self.view.bounds.height/2)
+        }, completion: nil)
+    }
+    func animateOut(viewToAnimate: UIView){
+        UIView.animate(withDuration: 0.3, animations: {
+            self.blurEffectView.alpha = 0
+            viewToAnimate.alpha = 0
+            viewToAnimate.transform = CGAffineTransform.init(scaleX: 1.05, y: 1.05)
+            
+        }) { (sucsess:Bool) in
+            viewToAnimate.removeFromSuperview()
+            self.blurEffectView.removeFromSuperview()
+        }
+    }
+    
     override func viewDidLoad() {
+        
+        // Whole screen blur view (used in many pop-ups)
+        blurEffectView.frame = view.bounds
+        blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        blurEffectView.alpha = 0
         
         // Nav bar
         let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 38, height: 20))
