@@ -34,7 +34,7 @@ class StartViewController: UIViewController {
         
         let confirmAction = UIAlertAction(title: "Play", style: .default) { (_) in
             let field = alertController.textFields![0]
-            if field.text != "" {
+            if field.text != "" && Int(field.text!)! > 0 {
                 self.numInitialCups = Int(field.text!)!
                 self.performSegue(withIdentifier: "startGame", sender: nil)
             } else {
