@@ -301,6 +301,16 @@
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CwX-I5-Iou" userLabel="reRackIndicator">
+                                <rect key="frame" x="329" y="401" width="10" height="10"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="0.36470588240000001" green="0.63921568630000003" blue="0.4823529412" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
@@ -318,6 +328,8 @@
                         <outlet property="finalScoreLabel" destination="TKg-LZ-3Vl" id="ibe-Gi-PXN"/>
                         <outlet property="missedButton" destination="GU9-ot-EDa" id="oJr-16-lKK"/>
                         <outlet property="noDataLabel" destination="Wj1-mj-Ydh" id="pkb-em-FHH"/>
+                        <outlet property="reRackButton" destination="MUk-Dk-1VM" id="TjL-Nd-EGk"/>
+                        <outlet property="reRackIndicator" destination="CwX-I5-Iou" id="0Mm-iP-jh0"/>
                         <outlet property="reRackView" destination="S0B-Au-v31" id="GSh-Ru-IFh"/>
                         <outlet property="tableView" destination="gEq-IX-aox" id="Xf3-y5-FaW"/>
                         <outlet property="winnersView" destination="gcy-Le-yKg" id="fxX-Or-gEu"/>

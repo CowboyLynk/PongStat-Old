@@ -27,6 +27,8 @@ class PongGameVC: UIViewController {
     @IBOutlet weak var currentScoreLabel: UILabel!
     @IBOutlet weak var chartView: LineChartView!
     @IBOutlet weak var noDataLabel: UILabel!
+    @IBOutlet weak var reRackButton: UIButton!
+    @IBOutlet weak var reRackIndicator: UIView!
     //Winner View Outlets
     @IBOutlet var winnersView: UIView!
     @IBOutlet weak var finalScoreLabel: UILabel!
@@ -41,6 +43,7 @@ class PongGameVC: UIViewController {
             activeGame = turns.last?.1.copy() as! PongGame
             setTable(cupConfig: activeGame.cupConfig)
             updateVisuals()
+            checkForReReck()
         }
     }
     @IBAction func reRackButtonTapped(_ sender: Any) {
@@ -120,6 +123,7 @@ class PongGameVC: UIViewController {
                 let multiplier = 1 + 0.1 * Double(6 - activeGame.calcCupsAround(cup: playedCup))
                 activeGame.madeCounter += multiplier
             }
+            checkForReReck()
         default:
             print("default")
         }
@@ -199,6 +203,13 @@ class PongGameVC: UIViewController {
         }
         return turnNodes
     }
+    func checkForReReck(){
+        if activeGame.checkForPossibleReRack(){
+            reRackIndicator.isHidden = false
+        } else {
+            reRackIndicator.isHidden = true
+        }
+    }
 
     override func viewDidLoad() {
         
@@ -243,6 +254,9 @@ class PongGameVC: UIViewController {
         missedButton.layer.shadowRadius = 0
         missedButton.layer.shadowOffset = CGSize(width: 0, height: 5)
         missedButton.layer.cornerRadius = 15
+        
+        // Initially hides reRack indicator
+        reRackIndicator.isHidden = true
         
         super.viewDidLoad()
     }

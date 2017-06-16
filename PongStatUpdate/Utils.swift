@@ -23,6 +23,15 @@ class PongGame: NSObject, NSCopying {
         score = 0
     }
     
+    func checkForPossibleReRack() -> Bool{
+        let numCupsLeft = self.getCount(array: self.cupConfig)
+        if numCupsLeft > 1{
+            return -1/2*(1 - (8.0*Double(numCupsLeft) + 1.0).squareRoot()).truncatingRemainder(dividingBy: 1.0) == 0
+
+        }
+        return false
+    }
+    
     func getCount(array: [[Bool]]) -> Int{
         var count = 0
         for row in 0..<array.count{
