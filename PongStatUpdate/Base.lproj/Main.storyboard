@@ -313,6 +313,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="chartView" destination="wyH-za-BxR" id="rRM-VL-hDo"/>
+                        <outlet property="cupsLeftToPlaceLabel" destination="Pze-q5-G32" id="MPU-nY-Upb"/>
                         <outlet property="currentScoreLabel" destination="n93-mr-xE2" id="Op9-Dz-VzT"/>
                         <outlet property="finalScoreLabel" destination="TKg-LZ-3Vl" id="ibe-Gi-PXN"/>
                         <outlet property="missedButton" destination="GU9-ot-EDa" id="oJr-16-lKK"/>
@@ -353,6 +354,13 @@
                                 <action selector="closeReRackButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ATr-N3-9b1"/>
                             </connections>
                         </button>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Left to place: " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pze-q5-G32">
+                            <rect key="frame" x="34" y="12" width="212" height="21"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <fontDescription key="fontDescription" name="Verdana-Bold" family="Verdana" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <userDefinedRuntimeAttributes>

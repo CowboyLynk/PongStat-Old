@@ -60,18 +60,6 @@ class PongGame: NSObject, NSCopying {
         return cupsAround
     }
     
-    func cupsRemaining() -> Int{
-        var count = 0
-        for row in cupConfig{
-            for cup in row{
-                if cup{
-                    count += 1
-                }
-            }
-        }
-        return count
-    }
-    
     func copy(with zone: NSZone? = nil) -> Any {
         let copy = PongGame(config: cupConfig)
         copy.madeCounter = self.madeCounter

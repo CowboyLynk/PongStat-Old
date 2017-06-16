@@ -30,6 +30,8 @@ class PongGameVC: UIViewController {
     //Winner View Outlets
     @IBOutlet var winnersView: UIView!
     @IBOutlet weak var finalScoreLabel: UILabel!
+    //Re-rack View Outlets
+    @IBOutlet weak var cupsLeftToPlaceLabel: UILabel!
     
     //Actions
     @IBAction func undoButtonTapped(_ sender: Any) {
@@ -45,6 +47,7 @@ class PongGameVC: UIViewController {
         activeGame.reRackConfig = initialReRackArrangement
         Animations.springAnimateIn(viewToAnimate: reRackView, blurView: blurEffectView, view: self.view)
         setReRackView()
+        cupsLeftToPlaceLabel.text = "Left to place: \(activeGame.getCount(array: activeGame.cupConfig) - activeGame.getCount(array: activeGame.reRackConfig))"
     }
     @IBAction func resetButtonTapped(_ sender: Any) {
         let alert = UIAlertController(title: "Reset table?", message: "Are you sure that you want to reset the table? Your scores will be deleted.", preferredStyle: UIAlertControllerStyle.alert)
@@ -60,6 +63,7 @@ class PongGameVC: UIViewController {
         }))
         self.present(alert, animated: true, completion: nil)
     }
+    // Re-rack View Actions
     @IBAction func setRackButtonTapped(_ sender: Any) {
         if activeGame.getCount(array: activeGame.reRackConfig) == activeGame.getCount(array: activeGame.cupConfig){
             activeGame.cupConfig = activeGame.reRackConfig
@@ -70,7 +74,7 @@ class PongGameVC: UIViewController {
             Animations.animateOut(viewToAnimate: reRackView, blurView: blurEffectView)
         }
         else {
-            let alert = UIAlertController(title: "Invalid Re-rack", message: "The number of cups you set for the re-rack doesn't match the number of cups on the table. Cups on table: \(self.activeGame.cupsRemaining())", preferredStyle: UIAlertControllerStyle.alert)
+            let alert = UIAlertController(title: "Invalid Re-rack", message: "The number of cups you set for the re-rack doesn't match the number of cups on the table. Cups on table: \(self.activeGame.getCount(array: activeGame.cupConfig))", preferredStyle: UIAlertControllerStyle.alert)
             alert.addAction(UIAlertAction(title: "Okay", style: UIAlertActionStyle.default, handler: nil))
             self.present(alert, animated: true, completion: nil)
         }
@@ -82,6 +86,7 @@ class PongGameVC: UIViewController {
         sender.isPressed()
         let location = sender.location
         activeGame.reRackConfig[location.0][location.1] = sender.switchState
+        cupsLeftToPlaceLabel.text = "Left to place: \(activeGame.getCount(array: activeGame.cupConfig) - activeGame.getCount(array: activeGame.reRackConfig))"
     }
     //Winner View Actions
     @IBAction func wvUndoButtonPressed(_ sender: Any) {
@@ -121,7 +126,7 @@ class PongGameVC: UIViewController {
         activeGame.updateScore()
         turns.append((turnType, activeGame.copy() as! PongGame)) // Adds the current cup config to turns
         updateVisuals()
-        if activeGame.cupsRemaining() == 0{
+        if activeGame.getCount(array: activeGame.cupConfig) == 0{
             finalScoreLabel.text = "Final Score: \(String(Int(activeGame.score)))"
             Animations.springAnimateIn(viewToAnimate: winnersView, blurView: blurEffectView, view: self.view)
         }
@@ -185,7 +190,7 @@ class PongGameVC: UIViewController {
             i += 1
         }
     }
-    func getTurnNodes() -> [(Int, PongGame)]{
+    func getTurnNodes() -> [(Int, PongGame)]{  // Returns only turns that are makes or misses for the graph nodes
         var turnNodes = [(Int, PongGame)]()
         for turn in turns{
             if turn.0 == 0 || turn.0 == 1{
