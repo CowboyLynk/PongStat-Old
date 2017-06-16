@@ -205,9 +205,23 @@ class PongGameVC: UIViewController {
     }
     func checkForReReck(){
         if activeGame.checkForPossibleReRack(){
-            reRackIndicator.isHidden = false
+            let initialPos = reRackIndicator.center
+            // Sets initial scale/position
+            reRackIndicator.transform = CGAffineTransform.init(scaleX: 1, y: 1)
+            reRackIndicator.center.y += 100
+            
+            UIView.animate(withDuration: 0.4){
+                self.reRackIndicator.alpha = 1
+            }
+            UIView.animate(withDuration: 1, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0, options: [] , animations: {
+                self.reRackIndicator.center.y -= 100
+            }, completion: nil)
         } else {
-            reRackIndicator.isHidden = true
+            UIView.animate(withDuration: 0.3, animations: {
+                self.reRackIndicator.alpha = 0
+                self.reRackIndicator.transform = CGAffineTransform.init(scaleX: 1.05, y: 1.05)
+                
+            })
         }
     }
 
@@ -256,7 +270,7 @@ class PongGameVC: UIViewController {
         missedButton.layer.cornerRadius = 15
         
         // Initially hides reRack indicator
-        reRackIndicator.isHidden = true
+        reRackIndicator.alpha = 0
         
         super.viewDidLoad()
     }
