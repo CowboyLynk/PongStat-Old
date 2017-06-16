@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:PongStatUpdate.xcodeproj">
+      location = "self:/Users/cowboylynk/Documents/GitHub/PongStatUpdate/PongStatUpdate.xcodeproj">
    </FileRef>
 </Workspace>

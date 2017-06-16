@@ -529,7 +529,7 @@
 				INFOPLIST_FILE = PongStatUpdate/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = LampshadeSoftware.PongStat;
+				PRODUCT_BUNDLE_IDENTIFIER = com.LampshadeSoftware.PongStat;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -545,7 +545,7 @@
 				INFOPLIST_FILE = PongStatUpdate/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = LampshadeSoftware.PongStat;
+				PRODUCT_BUNDLE_IDENTIFIER = com.LampshadeSoftware.PongStat;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 1;
