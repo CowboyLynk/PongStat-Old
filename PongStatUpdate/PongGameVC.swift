@@ -205,7 +205,6 @@ class PongGameVC: UIViewController {
     }
     func checkForReReck(){
         if activeGame.checkForPossibleReRack(){
-            let initialPos = reRackIndicator.center
             // Sets initial scale/position
             reRackIndicator.transform = CGAffineTransform.init(scaleX: 1, y: 1)
             reRackIndicator.center.y += 100
