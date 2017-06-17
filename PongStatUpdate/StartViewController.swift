@@ -21,7 +21,7 @@ class StartViewController: UIViewController {
     
     // Actions
     @IBAction func startGameButtonPressed(_ sender: Any) {
-        presentAlert()
+        presentNumCupsAlert()
     }
     @IBAction func instructionsButtonPressed(_ sender: Any) {
         Animations.springAnimateIn(viewToAnimate: instructionsView, blurView: blurEffectView, view: self.view)
@@ -36,7 +36,7 @@ class StartViewController: UIViewController {
             destination.numInitialCups = self.numInitialCups
         }
     }
-    func presentAlert() {
+    func presentNumCupsAlert() {
         let alertController = UIAlertController(title: "Number of cups", message: "Please enter the number of cups:", preferredStyle: .alert)
         
         let confirmAction = UIAlertAction(title: "Play", style: .default) { (_) in
@@ -56,7 +56,7 @@ class StartViewController: UIViewController {
         }
         
         alertController.addTextField { (textField) in
-            textField.placeholder = "Num cups"
+            textField.placeholder = "Number of cups"
             textField.textAlignment = .center
             textField.keyboardType = UIKeyboardType.numberPad
         }

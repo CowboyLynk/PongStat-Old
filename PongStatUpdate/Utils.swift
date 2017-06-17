@@ -78,6 +78,23 @@ class PongGame: NSObject, NSCopying {
     }
 }
 
+class PongNight{
+    
+    // Variables
+    var startTime: Date
+    var pongGameNodes = [(Double, Double)]()
+    
+    init(){
+        startTime = Date()
+    }
+    
+    func appendPongGame(pongGameScore: Double){
+        let elapsed = Date().timeIntervalSince(startTime)
+        pongGameNodes.append((elapsed, pongGameScore))
+    }
+    
+}
+
 class reRackSwitch: UIButton {
     // Variables
     var location = (Int(), Int())
